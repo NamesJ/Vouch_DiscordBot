@@ -78,11 +78,11 @@ async def vouch(ctx, mention, value):
 
     try:
         if value.lower() in ['n', 'no']:
-            vs.vouchNegative(voucher_id, vouchee_id)
+            vs.vouch(voucher_id, vouchee_id, -1)
         elif value.lower() in ['p', 'pass']:
-            vs.vouchNeutral(voucher_id, vouchee_id)
+            vs.vouch(voucher_id, vouchee_id, 0)
         elif value.lower() in ['y', 'yes']:
-            vs.vouchPositive(voucher_id, vouchee_id)
+            vs.vouch(voucher_id, vouchee_id, 1)
         else:
             raise Exception(f'Invalid value called for !vouch: {ctx.message}')
     except Exception as e:
